@@ -1,7 +1,7 @@
 
 import './App.css';
 import ExpenseItem from './components/expenses/ExpenseItems';
-function app(){
+const app=()=>{
   const expenses=[
     {
     id:'el',
