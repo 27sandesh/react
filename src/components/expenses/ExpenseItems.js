@@ -1,24 +1,36 @@
-import './ExpenseItem.css'
-import './ExpenseDate'
-import ExpenseDate from './ExpenseDate';
-import ExpenseDetails from './ExpenseDetails';
- const ExpenseItem=(props)=>{
-    const deletebtn=()=>{
-        const ExpenseItem=document.getElementsByClassName('expense-item__description')[0];
-        ExpenseItem.remove();
-    }
-  
+import React, { useState } from "react";
 
+import "./ExpenseItem.css";
+import "./ExpenseDate";
+import ExpenseDate from "./ExpenseDate";
+import ExpenseDetails from "./ExpenseDetails";
+import Card from "./card";
+const ExpenseItem = (props) => {
+  //const [title, setTitle] = useState(props.title);
+  const [amount, SetAmount] = useState(props.amount);
+  // let title=props.title;
+  const clickHandeler = () => {
+    //etTitle("updated");
+    //console.log(title);
+    SetAmount("100");
+    console.log(amount);
+  };
 
-    return (
-        <div className='expense-item'>
-            <ExpenseDate date={props.date}/>
-            <ExpenseDetails title={props.title}/>
-            <ExpenseDetails location={props.location}/>
-            <ExpenseDetails amount={props.amount}/>
-            <button onClick={deletebtn}>delete</button>
-        </div>
-    )
-            
- }
- export default ExpenseItem;
+  //    const deleteb=()=>{
+  //         const ExpenseItem=document.getElementsByClassName('expense-item')[0];
+  //         ExpenseItem.remove();
+  //     }
+
+  return (
+    <Card className="expense-item">
+      <ExpenseDate date={props.date} />
+      <ExpenseDetails
+        title={props.title}
+        location={props.location}
+        amount={amount}
+      />
+      <button onClick={clickHandeler}>change title </button>
+    </Card>
+  );
+};
+export default ExpenseItem;
